@@ -1,0 +1,22 @@
+RavenAI License API — deployment steps
+
+1. Deploy this folder to a Node.js host (Railway, Render, VPS, etc.).
+2. Create environment variables from .env.example.
+3. Set ADMIN_EMAIL=lauripalonen16@gmail.com.
+4. Set a strong random AUTH_SECRET and ADMIN_PASSWORD.
+5. For production use a persistent database. SQLite is fine only on a host with persistent disk.
+6. Run: npm install
+7. Run: npx prisma db push
+8. Run: npm run db:seed
+9. Build: npm run build
+10. Start: npm run start
+11. Your public HTTPS address (example https://license.example.com) is the license API URL.
+
+Desktop endpoints:
+POST /api/license/activate
+POST /api/license/verify
+
+Admin UI:
+/admin
+
+IMPORTANT: Do not put ADMIN_PASSWORD, AUTH_SECRET, database credentials, or a private admin token inside the SellAuth theme. Browser theme code is public.
